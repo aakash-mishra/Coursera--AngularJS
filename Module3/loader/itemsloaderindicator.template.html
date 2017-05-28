@@ -1,1 +1,13 @@
-<div class="loader"></div>
+
+  <ol>
+    <li ng-repeat="item in narrow.found">
+      <b>Name:</b>{{item.name}}
+      <b>Description:</b> {{item.description}}
+      <b>Short name:</b> {{item.short_name}}
+      <button ng-click="narrow.removeItem($index);">Don't want this one</button>
+    </li>
+    <div ng-if="narrow.found=='Nothing found'">
+      <h4 style="color:red">NOTHING FOUND!</h4>
+    </div>
+
+  </ol>
