@@ -6,7 +6,7 @@
       <b>Short name:</b> {{item.short_name}}<br>
       <button ng-click="narrow.removeItem($index);">Don't want this one</button>
     </li>
-    <div ng-if="narrow.found=='Nothing found'">
+    <div ng-if="narrow.error=='error'">
       <h4 style="color:red">NOTHING FOUND!</h4>
     </div>
 
