@@ -10,12 +10,17 @@ function FoundItems(){
 
 
   var ddo = {
-
-  templateUrl: 'loader/itemsloaderindicator.template.html'
+  templateUrl: 'loader/itemsloaderindicator.template.html',
+  scope: {
+    itemsFound:'<',
+    onRemove:'&'
+  },
+  controller:NarrowItDownController,
+  controllerAs:'list',
+  bindToController:true,
   };
 
   return ddo;
-
 }
 
 
@@ -29,6 +34,7 @@ function NarrowItDownController(MenuSearchService){
     ctrl.found=[];
     ctrl.error="";
     if(ctrl.searchTerm == ""){
+      console.log("error");
       ctrl.error="error";
       ctrl.found=[];
     }
@@ -36,13 +42,11 @@ function NarrowItDownController(MenuSearchService){
     else{
 
      MenuSearchService.getMatchedMenuItems(ctrl.searchTerm).then(function(data){
-         if(data.length==0) ctrl.error = "error";
-         else {
-           ctrl.found=[];
-           for(var i=0;i<data.length;i++){
-             ctrl.found.push(data[i]);
-           }
-         }
+         if(data.length==0)
+          ctrl.error = "error";
+         else
+          ctrl.found=data;
+
     });
 
   }

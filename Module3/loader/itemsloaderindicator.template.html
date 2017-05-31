@@ -1,12 +1,13 @@
 
   <ol>
-    <li ng-repeat="item in narrow.found">
+    <li ng-repeat="item in list.items-found">
+
       <b>Name:</b>{{item.name}}<br>
       <b>Description:</b> {{item.description}}<br>
       <b>Short name:</b> {{item.short_name}}<br>
-      <button ng-click="narrow.removeItem($index);">Don't want this one</button>
+      <button ng-click="list.onRemove({index:$index});">Don't want this one</button>
     </li>
-    <div ng-if="narrow.error=='error'">
+    <div ng-if="list.error=='error'">
       <h4 style="color:red">NOTHING FOUND!</h4>
     </div>
 
