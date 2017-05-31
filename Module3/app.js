@@ -12,11 +12,12 @@ function FoundItems(){
   var ddo = {
   templateUrl: 'loader/itemsloaderindicator.template.html',
   scope: {
-    itemsFound:'<',
-    onRemove:'&'
+    items:'<',
+    onRemove:'&',
+    error:'<'
   },
-  controller:NarrowItDownController,
-  controllerAs:'list',
+  controller:'NarrowItDownController',
+  controllerAs:'ctrl',
   bindToController:true,
   };
 
@@ -34,7 +35,7 @@ function NarrowItDownController(MenuSearchService){
     ctrl.found=[];
     ctrl.error="";
     if(ctrl.searchTerm == ""){
-      console.log("error");
+
       ctrl.error="error";
       ctrl.found=[];
     }
