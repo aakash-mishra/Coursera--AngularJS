@@ -12,7 +12,7 @@ function FoundItems(){
   var ddo = {
   templateUrl: 'loader/itemsloaderindicator.template.html',
   scope: {
-    items:'<',
+    itemsFound:'<',
     onRemove:'&',
     error:'<'
   },
