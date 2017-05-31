@@ -28,8 +28,11 @@ function NarrowItDownController(MenuSearchService){
   ctrl.startSearch = function(){
     ctrl.found=[];
     ctrl.error="";
-    if(ctrl.searchTerm == "")
-    ctrl.error="error"
+    if(ctrl.searchTerm == ""){
+      ctrl.error="error";
+      ctrl.found=[];
+    }
+
     else{
 
      MenuSearchService.getMatchedMenuItems(ctrl.searchTerm).then(function(data){
